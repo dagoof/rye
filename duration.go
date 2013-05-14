@@ -43,18 +43,18 @@ func (d Duration) RelativeWeeks() time.Duration {
 	return d.Duration % Month / Week
 }
 
-func (d Duration) RelativeDays() time.Duration {
+func (d Duration) PartialDays() time.Duration {
 	return d.Duration % Week / Day
 }
 
-func (d Duration) RelativeHours() time.Duration {
+func (d Duration) PartialHours() time.Duration {
 	return d.Duration % Day / time.Hour
 }
 
-func (d Duration) RelativeMinutes() time.Duration {
+func (d Duration) PartialMinutes() time.Duration {
 	return d.Duration % time.Hour / time.Minute
 }
 
-func (d Duration) RelativeSeconds() time.Duration {
+func (d Duration) PartialSeconds() time.Duration {
 	return d.Duration % time.Minute / time.Second
 }

@@ -50,9 +50,9 @@ func TestYears(t *testing.T) {
 
 }
 
-func TestRelativeHours(t *testing.T) {
-	if MakeDuration(time.Hour * time.Duration(36)).RelativeHours() != 12 {
-		t.Fatal("36 relative hours should be 12")
+func TestPartialHours(t *testing.T) {
+	if MakeDuration(time.Hour * time.Duration(36)).PartialHours() != 12 {
+		t.Fatal("36 partial hours should be 12")
 	}
 }
 
