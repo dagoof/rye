@@ -35,11 +35,11 @@ func (d Duration) Years() time.Duration {
 	return d.Duration / Year
 }
 
-func (d Duration) RelativeMonths() time.Duration {
+func (d Duration) PartialMonths() time.Duration {
 	return d.Duration % Year / Month
 }
 
-func (d Duration) RelativeWeeks() time.Duration {
+func (d Duration) PartialWeeks() time.Duration {
 	return d.Duration % Month / Week
 }
 
