@@ -23,12 +23,22 @@ func TestDays(t *testing.T) {
 }
 
 func TestWeeks(t *testing.T) {
+	if MakeDuration(Day * time.Duration(6)).Weeks() != 0 {
+		t.Fatal("6 days should be 0 weeks")
+	}
 	if MakeDuration(Day * time.Duration(14)).Weeks() != 2 {
 		t.Fatal("14 days should be 2 weeks")
 	}
+	if MakeDuration(Day * time.Duration(23)).Weeks() != 3 {
+		t.Fatal("23 days should be 3 weeks")
+	}
+
 }
 
 func TestMonths(t *testing.T) {
+	if MakeDuration(Week * time.Duration(1)).Months() != 0 {
+		t.Fatal("1 weeks should be 0 months")
+	}
 	if MakeDuration(Week * time.Duration(9)).Months() != 2 {
 		t.Fatal("9 weeks should be 2 months")
 	}
