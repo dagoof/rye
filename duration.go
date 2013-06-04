@@ -1,3 +1,11 @@
+/*
+time Duration utilities. Extends duration constants up to a year, and
+provides methods for modulo durations
+
+	d := MakeDuration(time.Minute * 72)
+	hours := time.Hours()             // 1
+	minutes := time.PartialMinutes()  // 12
+*/
 package rye
 
 import (
