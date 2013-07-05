@@ -4,7 +4,7 @@ provides methods for modulo durations
 
 	d := MakeDuration(time.Minute * 72)
 	hours := d.Hours()             // 1
-	minutes := d.PartialMinutes()  // 12
+	minutes := d.RemainingMinutes()  // 12
 */
 package rye
 
@@ -43,26 +43,27 @@ func (d Duration) Years() time.Duration {
 	return d.Duration / Year
 }
 
-func (d Duration) PartialMonths() time.Duration {
-	return d.Duration % Year / Month
+func (d Duration) RemainingSeconds() time.Duration {
+	return d.Duration % time.Minute / time.Second
 }
 
-func (d Duration) PartialWeeks() time.Duration {
-	return d.Duration % Month / Week
-}
-
-func (d Duration) PartialDays() time.Duration {
-	return d.Duration % Week / Day
-}
-
-func (d Duration) PartialHours() time.Duration {
-	return d.Duration % Day / time.Hour
-}
-
-func (d Duration) PartialMinutes() time.Duration {
+func (d Duration) RemainingMinutes() time.Duration {
 	return d.Duration % time.Hour / time.Minute
 }
 
-func (d Duration) PartialSeconds() time.Duration {
-	return d.Duration % time.Minute / time.Second
+func (d Duration) RemainingHours() time.Duration {
+	return d.Duration % Day / time.Hour
 }
+
+func (d Duration) RemainingDays() time.Duration {
+	return d.Duration % Week / Day
+}
+
+func (d Duration) RemainingWeeks() time.Duration {
+	return d.Duration % Month / Week
+}
+
+func (d Duration) RemainingMonths() time.Duration {
+	return d.Duration % Year / Month
+}
+
